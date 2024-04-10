@@ -1,0 +1,27 @@
+<div class="divContainer">
+    <div *ngIf="showLogin">
+        <h2>Effettua il login</h2>
+        <form #myForm="ngForm" (ngSubmit)="submitLoginForm(myForm)">
+            <input type="text" placeholder="username" name="username" ngModel>
+            <input type="password" placeholder="password" name="password" ngModel>
+            <button type="submit" class="logBtn">Login</button>
+        </form>
+        <button type="button" (click)="showRegistrationForm()" class="signBtn">Registrati</button>
+    </div>
+    <div *ngIf="showRegistration">
+        <h2>Registrati</h2>
+        <form #myForm="ngForm" (ngSubmit)="submitRegistrationForm(myForm)">
+            <input type="text" placeholder="nome" name="name" ngModel>
+            <input type="text" placeholder="cognome" name="surname" ngModel>
+            <input type="text" placeholder="email" name="email" ngModel>
+            <input class="mandatory" type="text" placeholder="username" name="username" ngModel>
+            <input class="mandatory" type="password" placeholder="password" name="password" ngModel>
+            <button type="submit" class="signBtn">Conferma</button>
+        </form>
+        <button type="button" (click)="showLoginForm()" class="cancel">Annulla</button>
+    </div>
+    <div class="divMessage">
+        <p>{{messageManager}}</p>
+    </div>
+</div>
+
